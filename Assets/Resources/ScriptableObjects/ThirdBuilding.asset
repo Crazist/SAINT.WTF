@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1a42f95698f7c46b5e497b52a10361, type: 3}
+  m_Name: ThirdBuilding
+  m_EditorClassIdentifier: 
+  BuildingType: 2
+  BuildingPrefab: {fileID: 787303213519300992, guid: b9b4991b64ef4f5418ac447b9ffb6040,
+    type: 3}
+  SpawnPosition: {x: 2, y: 0.15, z: 0.4}
+  ProductionSpeed: 5
+  StorageCapacity: 4
+  WarehouseInputConfig:
+    WarehousePrefab: {fileID: 7902247024424437897, guid: e3c2067e12bf9ab4fab06b1f7c2295ee,
+      type: 3}
+    ResourceItem: {fileID: 2408859672672843722, guid: cbeae33f8e1f41540a50c22a11447845,
+      type: 3}
+    Position: {x: 0.2, y: 0, z: 0.4}
+    IsInputWarehouse: 1
+  WarehouseOutputConfig:
+    WarehousePrefab: {fileID: 7902247024424437897, guid: e3c2067e12bf9ab4fab06b1f7c2295ee,
+      type: 3}
+    ResourceItem: {fileID: 2280501356747762730, guid: 853284957f025ef47879a538075d0659,
+      type: 3}
+    Position: {x: 4, y: 0, z: 0.4}
+    IsInputWarehouse: 0
+  RequiredResources: 0100000002000000
