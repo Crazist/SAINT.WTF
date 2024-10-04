@@ -10,7 +10,6 @@ namespace Logic.Entities
         [SerializeField] private Transform _spawnStartTransform;
 
         private List<Resource> _storedItems = new List<Resource>();
-
         private WarehouseConfig _warehouseConfig;
         private BuildingConfig _buildingConfig;
         private int _capacity;
@@ -27,7 +26,7 @@ namespace Logic.Entities
             if (_storedItems.Count < _capacity)
             {
                 _storedItems.Add(item);
-                item.transform.position = GetNextFreePosition();
+                ReorganizeStoredItems();
             }
         }
 
@@ -35,8 +34,9 @@ namespace Logic.Entities
         {
             if (_storedItems.Count > 0)
             {
-                Resource item = _storedItems[^1];
-                _storedItems.RemoveAt(_storedItems.Count - 1);
+                Resource item = _storedItems[0];
+                _storedItems.RemoveAt(0);
+                ReorganizeStoredItems();
                 return item;
             }
 
@@ -51,6 +51,7 @@ namespace Logic.Entities
                 {
                     var item = _storedItems[i];
                     _storedItems.RemoveAt(i);
+                    ReorganizeStoredItems();
                     return item;
                 }
             }
@@ -107,11 +108,18 @@ namespace Logic.Entities
             return false;
         }
 
-        private Vector3 GetNextFreePosition()
+        public void ReorganizeStoredItems()
+        {
+            for (int i = 0; i < _storedItems.Count; i++)
+            {
+                _storedItems[i].transform.position = GetNextFreePositionForIndex(i);
+            }
+        }
+
+        private Vector3 GetNextFreePositionForIndex(int index)
         {
             Vector3 startPosition = _spawnStartTransform.position;
-
-            return new Vector3(startPosition.x + (_storedItems.Count * 0.2f), startPosition.y, startPosition.z);
+            return new Vector3(startPosition.x + (index * 0.2f), startPosition.y, startPosition.z);
         }
     }
 }

@@ -465,6 +465,21 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+  - m_Index: 1005
+    m_Metrics:
+      m_Width: 49
+      m_Height: 45
+      m_HorizontalBearingX: 5
+      m_HorizontalBearingY: 45
+      m_HorizontalAdvance: 59
+    m_GlyphRect:
+      m_X: 187
+      m_Y: 10
+      m_Width: 49
+      m_Height: 45
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 1053
@@ -537,6 +552,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 1079
     m_GlyphIndex: 1000
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 1084
+    m_GlyphIndex: 1005
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 28268798066460806}
@@ -616,6 +635,10 @@ MonoBehaviour:
     m_Y: 0
     m_Width: 53
     m_Height: 66
+  - m_X: 177
+    m_Y: 0
+    m_Width: 68
+    m_Height: 64
   m_FreeGlyphRects:
   - m_X: 64
     m_Y: 353
@@ -645,10 +668,6 @@ MonoBehaviour:
     m_Y: 131
     m_Width: 389
     m_Height: 13
-  - m_X: 186
-    m_Y: 0
-    m_Width: 325
-    m_Height: 511
   - m_X: 68
     m_Y: 208
     m_Width: 41
@@ -673,10 +692,18 @@ MonoBehaviour:
     m_Y: 131
     m_Width: 388
     m_Height: 77
-  - m_X: 177
+  - m_X: 186
+    m_Y: 64
+    m_Width: 325
+    m_Height: 447
+  - m_X: 245
     m_Y: 0
+    m_Width: 266
+    m_Height: 511
+  - m_X: 177
+    m_Y: 64
     m_Width: 334
-    m_Height: 66
+    m_Height: 2
   m_fontInfo:
     Name: Liberation Sans
     PointSize: 86
@@ -1686,6 +1713,66 @@ MonoBehaviour:
       m_FeatureLookupFlags: 0
     - m_FirstAdjustmentRecord:
         m_GlyphIndex: 1000
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: -0.96875
+          m_YAdvance: 0
+      m_SecondAdjustmentRecord:
+        m_GlyphIndex: 1000
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: 0
+          m_YAdvance: 0
+      m_FeatureLookupFlags: 0
+    - m_FirstAdjustmentRecord:
+        m_GlyphIndex: 1012
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: -0.96875
+          m_YAdvance: 0
+      m_SecondAdjustmentRecord:
+        m_GlyphIndex: 1005
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: 0
+          m_YAdvance: 0
+      m_FeatureLookupFlags: 0
+    - m_FirstAdjustmentRecord:
+        m_GlyphIndex: 995
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: -0.96875
+          m_YAdvance: 0
+      m_SecondAdjustmentRecord:
+        m_GlyphIndex: 1005
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: 0
+          m_YAdvance: 0
+      m_FeatureLookupFlags: 0
+    - m_FirstAdjustmentRecord:
+        m_GlyphIndex: 1005
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: 0.96875
+          m_YAdvance: 0
+      m_SecondAdjustmentRecord:
+        m_GlyphIndex: 1012
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: 0
+          m_YAdvance: 0
+      m_FeatureLookupFlags: 0
+    - m_FirstAdjustmentRecord:
+        m_GlyphIndex: 1005
         m_GlyphValueRecord:
           m_XPlacement: 0
           m_YPlacement: 0

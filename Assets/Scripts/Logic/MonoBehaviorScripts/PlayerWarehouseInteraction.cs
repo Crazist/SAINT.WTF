@@ -38,10 +38,7 @@ namespace Logic.MonoBehaviorScripts
             }
             else if (_carriedItems.Count > 0 && warehouse.GetWarehouseConfig().IsInputWarehouse)
             {
-                if (warehouse.CanAcceptResource(_carriedItems[^1].ResourceType))
-                {
-                    StartCoroutine(MoveItemsToWarehouse(warehouse));
-                }
+                StartCoroutine(MoveItemsToWarehouse(warehouse));
             }
         }
 
@@ -62,7 +59,7 @@ namespace Logic.MonoBehaviorScripts
             yield return new WaitForSeconds(delay);
 
             Resource resource = warehouse.RemoveItem();
-            
+
             if (resource != null)
             {
                 _carriedItems.Add(resource);
@@ -80,21 +77,43 @@ namespace Logic.MonoBehaviorScripts
 
         private IEnumerator MoveItemsToWarehouse(Warehouse warehouse)
         {
+            List<Resource> remainingItems = new List<Resource>();
+
             while (_carriedItems.Count > 0 && warehouse.CanStoreMoreItems())
             {
                 Resource resource = _carriedItems[^1];
                 _carriedItems.RemoveAt(_carriedItems.Count - 1);
 
-                resource.transform.SetParent(null);
+                if (warehouse.CanAcceptResource(resource.ResourceType))
+                {
+                    resource.transform.SetParent(null);
 
-               yield return MoveResource(resource, warehouse.transform, _moveDuration);
+                    yield return MoveResource(resource, warehouse.transform, _moveDuration);
 
-                warehouse.AddItem(resource);
-                resource.transform.localRotation = Quaternion.identity;
+                    warehouse.AddItem(resource);
+                    resource.transform.localRotation = Quaternion.identity;
+                }
+                else
+                {
+                    remainingItems.Add(resource);
+                }
 
                 yield return new WaitForSeconds(_delayBetweenItems);
             }
+
+            _carriedItems.AddRange(remainingItems);
+            RecalculateResources();
         }
+
+        private void RecalculateResources()
+        {
+            for (int i = 0; i < _carriedItems.Count; i++)
+            {
+                Vector3 localEndPosition = new Vector3(0, (i + 1) * _carrySpacing, 0);
+                _carriedItems[i].transform.localPosition = localEndPosition;
+            }
+        }
+
 
         private IEnumerator MoveResource(Resource resource, Transform targetTransform, float duration)
         {
@@ -103,7 +122,8 @@ namespace Logic.MonoBehaviorScripts
 
             while (elapsedTime < duration)
             {
-               resource.transform.position = Vector3.Lerp(startPosition, targetTransform.position, elapsedTime / duration);
+                resource.transform.position =
+                    Vector3.Lerp(startPosition, targetTransform.position, elapsedTime / duration);
 
                 elapsedTime += Time.deltaTime;
                 yield return null;
